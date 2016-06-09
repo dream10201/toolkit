@@ -1,0 +1,76 @@
+
+以下文档本人亲测过，没有问题。
+不保证在所有人的设备上都可以成功。
+另外，我的树莓派偶尔会无法启动，我查了很多资料，也有人会出现下面这种现象导致raspbian无法启动，可能的原因是SD不太稳定，偶尔读取失败。不知道如何修复。
+启动时控制台报错：
+--[ end kernel panic -- not syncing: VFS: Unable to mount root fs on unkown-block(179,2)
+
+
+
+1 了解及安装，
+http://www.cnblogs.com/ma6174/archive/2013/01/25/2875617.html
+
+NOOBS下载完整安装包，解压后直接把解压后目录下的所有文件复制到sd，启动，选择要安装的系统，
+RASPBIAN
+Debian Wheezy
+Release date:2015-02-16
+Default login:pi / raspberry
+
+我安装过以下系统，感觉都不太好用，
+UBUNTU，xbian, xmbc等。
+
+
+
+2 启动后配置
+expand_rootfs  change_locale change_timezone configure_keyboard  ssh 
+
+蓝莓派 keyboard 设置 成功，
+
+http://blog.csdn.net/c80486/article/details/8460271
+
+如果putty上vi使用时，方向键仍然不好使，尝试设置putty的模式为linux。
+
+
+3 修改root密码
+http://outofmemory.cn/code-snippet/2897/shumeipai
+
+4 搜索设置wifi，并设置固定ip
+https://www.raspberrypi.org/forums/viewtopic.php?f=26&t=22660&p=214115
+
+root@rpi:~# cat /etc/network/interfaces
+
+auto lo
+
+iface lo inet loopback
+iface eth0 inet static
+
+address 192.168.1.8
+netmask 255.255.255.0
+gateway 192.168.1.1
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+
+iface mywlan0 inet static
+address 192.168.1.8
+netmask 255.255.255.0
+gateway 192.168.1.1
+
+
+6 设置路由器的端口映射方便外网直接ssh访问
+http://192.168.1.1/
+
+7 修改镜像
+http://blog.csdn.net/c80486/article/details/8460251
+
+ 8 安装tightvncserver，windows客户端用TightVNC Viewer
+http://wanshili6.blog.163.com/blog/static/214953019201331853215473/
+http://shumeipai.nxez.com/2013/09/04/login-rpi-with-vnc.html
+
+9 其它学习资料
+http://blog.csdn.net/c80486/article/details/8544569
+
+
+
+

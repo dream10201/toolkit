@@ -1,0 +1,39 @@
+
+alias ll='ls -lh'
+alias free='top -l 1 | head -n 10 | grep PhysMem'
+
+function rm () {
+  local path
+  for path in "$@"; do
+    # ignore any arguments
+    if [[ "$path" = -* ]]; then :
+    else
+      local dst=${path##*/}
+      # append the time if necessary
+      while [ -e ~/recycle/"$dst" ]; do
+        dst="$dst""_"$(date +%Y%m%d_%H%M%S)
+      done
+      mv "$path" ~/recycle/"$dst"
+    fi
+  done
+}
+
+
+export PS1="[jefMBP \t \w]\$"
+
+export code=~/file/code
+export gitsrc=~/file/code/gitsrc
+export prj=~/file/code/prj
+
+export GOROOT=/usr/local/go/
+export GOPATH=~/file/code/gopath/
+export GOBIN=~/file/code/gopath/bin/
+
+export ANDROID_NDK_ROOT=/Users/jeffery/Library/Android/ndk/android-ndk-r10d
+export ANDROID_SDK_ROOT=/Users/jeffery/Library/Android/sdk
+ANDROID_TOOL=/Users/jeffery/Library/Android/sdk/platform-tools
+
+
+export PATH=$PATH:/usr/local/bin:/usr/local/iftop-1.0pre3/sbin/:$GOROOT/bin/:$ANDROID_TOOL:$HOME/bin
+
+

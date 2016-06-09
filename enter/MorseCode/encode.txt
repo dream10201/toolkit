@@ -1,0 +1,77 @@
+
+.(1~4)  E I S H
+-(1~3)  T M O  
+
+.- A
+-. N
+
+.-- W
+-.- K
+--. G
+
+-.. D
+.-. R
+..- U
+
+.--- J
+-.-- Y
+--.- Q
+
+-... B
+.-.. L
+..-. F
+...- V
+
+.--. P
+-..- X
+-.-. C
+--.. Z
+-------------------------------
+
+N chars:
+EISH TMO
+
+2 chars:
+AN
+
+3 chars:
+WKG DRU
+
+4 chars:
+JYQ BLFV PXCZ
+------------------------------
+
+0	- - - - -
+1	· - - - -
+2	· · - - -
+3	· · · - -
+4	· · · · -
+5	· · · · ·
+6	- · · · ·
+7	- - · · ·
+8	- - - · ·
+9	- - - - ·
+
+Starting Signal	KA		- · - · -
+Stop (end of message)	+, AR		· - · - ·
+Wait	AS		· - · · ·
+Understood	VE		· · · - ·
+Not understand, Repeat	?, IMI		· · - - · ·
+Separator within message	=, BT		- · · · -
+Slower	SL		· · · · - · ·
+Serious distress message and request for urgent assistance	SOS		· · · - - - · · ·
+
+Period	[.]	AAA, RK		· - · - · -
+Comma	[,]	MIM, GW		- - · · - -
+Question mark	[?]	IMI, UD		· · - - · ·
+Exclamation mark	[!]	KW, MN		- · - · - -	    - - - ·
+Slash	[/]	NR		- · · - ·
+Parenthesis open	[(]	NG, KN		- · - - ·
+Parenthesis closed	[)]	NQ, KK		- · - - · -
+Colon	[:]	OS		- - - · · ·
+Double dash	[=]	NU		- · · · -
+Plus	[+]	AR		. - . - .
+Hyphen, Minus	[-]	DU		- · · · · -
+At sign	[@]	AC		· - - · - ·
+
+
