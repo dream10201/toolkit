@@ -12,17 +12,15 @@ function network_check()
 
 while :
 do
-    sleep 10m
-
     # first-time checking.
     if [ $(network_check) -eq 0 ] ; then
         echo 'reset at '`date`  /tmp/reboot_when_network_failure.log && /etc/init.d/networking restart && ifdown wlan0 && ifup wlan0
-        sleep 20m
+        sleep 2m
         
         # second-time checking.
         if [ $(network_check) -eq 0 ] ; then
             echo 'reset --force at '`date`  /tmp/reboot_when_network_failure.log && /etc/init.d/networking restart && ifdown --force wlan0 && ifup --force wlan0
-            sleep 40m
+            sleep 5m
         
             # third-time checking.
             if [ $(network_check) -eq 0 ] ; then
@@ -30,7 +28,10 @@ do
             fi  
         fi
     else
-         echo 'unset at '`date`
+         echo 'unset at '`date` >> /tmp/reboot_when_network_failure.log
     fi
+
+    sleep 5m
     
 done
+
